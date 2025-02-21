@@ -27,7 +27,6 @@ enum custom_keycodes {
   ST_MACRO_18,
   ST_MACRO_19,
   ST_MACRO_20,
-  ST_MACRO_21,
 };
 
 
@@ -77,10 +76,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 OSM(MOD_RSFT),  KC_TRANSPARENT, OSM(MOD_RCTL)
   ),
   [5] = LAYOUT_moonlander(
-    KC_TRANSPARENT, RGB_HUI,        RGB_SAI,        MOON_LED_LEVEL, LCTL(KC_KP_PLUS),KC_BRIGHTNESS_UP,KC_AUDIO_VOL_UP,                                KC_SYSTEM_SLEEP,KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_APPLICATION, RGB_HUD,        RGB_SAD,        KC_MS_WH_UP,    LCTL(KC_KP_MINUS),KC_BRIGHTNESS_DOWN,KC_AUDIO_VOL_DOWN,                                KC_TRANSPARENT, KC_TRANSPARENT, KC_KP_SLASH,    KC_UP,          KC_PAGE_UP,     KC_TRANSPARENT, ST_MACRO_18,    
-    KC_LEFT_GUI,    KC_MS_BTN4,     KC_MS_WH_LEFT,  KC_MS_WH_DOWN,  KC_MS_WH_RIGHT, KC_MS_BTN5,     KC_AUDIO_MUTE,                                                                  ST_MACRO_19,    KC_HOME,        KC_LEFT,        KC_RIGHT_CTRL,  KC_RIGHT,       KC_END,         KC_RIGHT_SHIFT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_17,                                    ST_MACRO_20,    ST_MACRO_21,    KC_DOWN,        KC_PGDN,        KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, RGB_HUI,        RGB_SAI,        MOON_LED_LEVEL, LCTL(KC_KP_PLUS),KC_BRIGHTNESS_UP,KC_AUDIO_VOL_UP,                                KC_SYSTEM_SLEEP,KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, HU_OE,          
+    KC_APPLICATION, RGB_HUD,        RGB_SAD,        KC_MS_WH_UP,    LCTL(KC_KP_MINUS),KC_BRIGHTNESS_DOWN,KC_AUDIO_VOL_DOWN,                                HU_OEE,         KC_TRANSPARENT, KC_KP_SLASH,    KC_UP,          KC_PAGE_UP,     KC_TRANSPARENT, HU_OO,          
+    KC_LEFT_GUI,    KC_MS_BTN4,     KC_MS_WH_LEFT,  KC_MS_WH_DOWN,  KC_MS_WH_RIGHT, KC_MS_BTN5,     KC_AUDIO_MUTE,                                                                  ST_MACRO_18,    KC_HOME,        KC_LEFT,        KC_RIGHT_CTRL,  KC_RIGHT,       KC_END,         KC_RIGHT_SHIFT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, ST_MACRO_17,                                    ST_MACRO_19,    ST_MACRO_20,    KC_DOWN,        KC_PGDN,        KC_TRANSPARENT, KC_TRANSPARENT, 
     QK_BOOT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, AU_TOGG,                                                                                                        KC_TRANSPARENT, KC_MS_WH_LEFT,  KC_MS_WH_DOWN,  KC_MS_WH_RIGHT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN2,                     KC_TRANSPARENT, KC_TRANSPARENT, KC_NO
   ),
@@ -264,20 +263,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_18:
     if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_LEFT)) SS_DELAY(100) SS_LCTL(SS_TAP(X_X)) SS_DELAY(100) SS_RALT(SS_TAP(X_9)) SS_DELAY(100) SS_LCTL(SS_TAP(X_V)));
+      SEND_STRING(SS_RALT(SS_TAP(X_COMMA)) SS_DELAY(100) SS_RALT(SS_TAP(X_COMMA)));
     }
     break;
     case ST_MACRO_19:
     if (record->event.pressed) {
-      SEND_STRING(SS_RALT(SS_TAP(X_COMMA)) SS_DELAY(100) SS_RALT(SS_TAP(X_COMMA)));
-    }
-    break;
-    case ST_MACRO_20:
-    if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_KP_SLASH) SS_DELAY(100) SS_TAP(X_KP_SLASH));
     }
     break;
-    case ST_MACRO_21:
+    case ST_MACRO_20:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_KP_SLASH) SS_DELAY(100) SS_TAP(X_KP_ASTERISK) SS_DELAY(100) SS_TAP(X_KP_ASTERISK) SS_DELAY(100) SS_TAP(X_KP_ASTERISK) SS_DELAY(100) SS_TAP(X_KP_SLASH));
     }
