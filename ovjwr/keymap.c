@@ -169,7 +169,33 @@ bool rgb_matrix_indicators_user(void) {
   return true;
 }
 
+// Declare a variable to track the last keycode
+static uint16_t last_keycode = KC_NO;
+//static bool last_shift = false;
+static uint8_t last_mods = 0;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (record->event.pressed) {
+    if (keycode == HU_OO && last_keycode == KC_U) {
+      // Send a backspace
+      tap_code(KC_BSPC);
+      // Restore the last modifier state -- current state is lost!
+      set_mods(last_mods);
+      // Send HU_UO keycode
+      tap_code(HU_UU);
+      // Clear the last modifier state to avoid unintended side effects -- CAPITAL typing is not possible??
+      clear_mods();
+      last_keycode = KC_NO;
+      last_mods = 0;
+      // Skip processing the current HU_OO keycode
+      return false;
+    }
+    last_keycode = keycode;
+    // Get the current state of modifiers
+    last_mods = get_mods();
+    // Check if the shift key is pressed
+    //last_shift = (mods & MOD_BIT(KC_LSFT)) || (mods & MOD_BIT(KC_RSFT));
+  }
   switch (keycode) {
     case ST_MACRO_0:
     if (record->event.pressed) {
