@@ -4,6 +4,7 @@
 #define HU_3 KC_3
 #define HU_4 KC_4
 #define HU_SS ALGR(KC_QUOT)
+#define HU_OO KC_EQL
 #define HU_Y KC_Z
 #define HU_5 KC_5
 #define HU_6 KC_6
@@ -35,7 +36,6 @@
 #define HU_UE KC_MINS
 #define HU_II KC_NUBS
 #define HU_OE KC_0
-#define HU_OO KC_EQL
 #define HU_OEE KC_LBRC
 #define HU_LBRC ALGR(KC_F)
 #define HU_SCLN ALGR(KC_COMM)
