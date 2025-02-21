@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESCAPE,      HU_0,           HU_1,           HU_2,           HU_3,           HU_4,           HU_SS,                                          LCTL(KC_KP_PLUS),HU_5,           HU_6,           HU_7,           HU_8,           HU_9,           ST_MACRO_0,     
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TAB,                                         ST_MACRO_1,     HU_Z,           KC_U,           KC_I,           KC_O,           KC_P,           ST_MACRO_2,     
     KC_BSPC,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           KC_DELETE,                                                                      LCTL(KC_KP_MINUS),KC_H,           KC_J,           KC_K,           KC_L,           KC_SPACE,       KC_ENTER,       
-    KC_DELETE,      HU_Y,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_UP,          HU_COMM,        HU_DOT,         OSM(MOD_RCTL),  
+    HU_OO,          HU_Y,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_UP,          HU_COMM,        HU_DOT,         OSM(MOD_RCTL),  
     KC_ENTER,       KC_MS_WH_LEFT,  KC_MS_WH_RIGHT, OSM(MOD_LALT),  OSM(MOD_LSFT),  KC_ENTER,                                                                                                       KC_ESCAPE,      KC_LEFT,        KC_DOWN,        KC_RIGHT,       OSM(MOD_RSFT),  OSM(MOD_RALT),  
     OSM(MOD_LCTL),  LCTL(KC_LEFT_SHIFT),TT(4),                          MO(5),          OSM(MOD_LALT),  OSL(1)
   ),
